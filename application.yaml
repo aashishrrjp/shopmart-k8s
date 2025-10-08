@@ -8,7 +8,7 @@ spec:
   project: default
   source:
     # The SSH URL for your PRIVATE manifests repository
-    repoURL: 'git@github.com:your-github-aashishrrjp/shopmart-k8s.git'
+    repoURL: 'git@github.com:aashishrrjp/shopmart-k8s.git'
     targetRevision: HEAD
     path: . # Deploy manifests from the root of the repository
   destination:
