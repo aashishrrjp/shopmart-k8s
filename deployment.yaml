@@ -17,7 +17,7 @@ spec:
       containers:
       - name: shopmart-app-container
         # This is the line your GitHub Actions pipeline will update
-        image: us-central1-docker.pkg.dev/mando-service-project-1/shopmart-repo/mart-app:0d5d88114baeae5b58aee44e5443b722200499c6
+        image: us-central1-docker.pkg.dev/mando-service-project-1/shopmart-repo/mart-app:bd1f89989411573f9ee54abfd8d88910224f8ed0
         ports:
         - containerPort: 8080 # The port your app listens on inside the container
         resources:
