@@ -1,0 +1,29 @@
+# deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shopmart-app-deployment
+  namespace: shopmart-prod # The namespace where the app will be deployed
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: shopmart-app
+  template:
+    metadata:
+      labels:
+        app: shopmart-app
+    spec:
+      containers:
+      - name: shopmart-app-container
+        # This is the line your GitHub Actions pipeline will update
+        image: your-region-docker.pkg.dev/your-project-id/your-repo-name/shopmart-app:initial-tag
+        ports:
+        - containerPort: 8080 # The port your app listens on inside the container
+        resources:
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+          limits:
+            cpu: "500m"
+            memory: "512Mi"
