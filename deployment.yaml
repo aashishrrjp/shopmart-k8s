@@ -18,6 +18,6 @@ spec:
     spec:
       containers:
         - name: mart-app-container
-          image: us-central1-docker.pkg.dev/mando-service-project-1/shopmart-repo/mart-app:179ed7cc01145b4abf72eef7eeae6ec2d3e117f1
+          image: us-central1-docker.pkg.dev/mando-service-project-1/shopmart-repo/mart-app:3b27ff4f4457abcbbd0e3a080476f1e876b9be47
           ports:
             - containerPort: 80
