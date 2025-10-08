@@ -1,14 +1,14 @@
-# service.yaml
+# shopmart-k8s/service.yaml
 apiVersion: v1
 kind: Service
 metadata:
   name: shopmart-app-service
   namespace: shopmart-prod
 spec:
-  type: ClusterIP # Exposes the service inside the cluster. Use 'LoadBalancer' for external access.
+  type: LoadBalancer
   selector:
-    app: shopmart-app # This must match the label in your deployment.yaml
+    app: shopmart-app
   ports:
-  - protocol: TCP
-    port: 80 # The port other services will use to call your app
-    targetPort: 8080 # The port on the pod where traffic is sent
+    - protocol: TCP
+      port: 80
+      targetPort: 80
