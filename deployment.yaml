@@ -1,9 +1,11 @@
-# deployment.yaml
+# shopmart-k8s/deployment.yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: shopmart-app-deployment
-  namespace: shopmart-prod # The namespace where the app will be deployed
+  namespace: shopmart-prod
+  labels:
+    app: shopmart-app
 spec:
   replicas: 2
   selector:
@@ -15,15 +17,7 @@ spec:
         app: shopmart-app
     spec:
       containers:
-      - name: shopmart-app-container
-        # This is the line your GitHub Actions pipeline will update
-        image: us-central1-docker.pkg.dev/mando-service-project-1/shopmart-repo/mart-app:bd1f89989411573f9ee54abfd8d88910224f8ed0
-        ports:
-        - containerPort: 8080 # The port your app listens on inside the container
-        resources:
-          requests:
-            cpu: "250m"
-            memory: "256Mi"
-          limits:
-            cpu: "500m"
-            memory: "512Mi"
+        - name: mart-app-container
+          image: us-central1-docker.pkg.dev/your-gcp-project-id/shopmart-repo/mart-app:initial
+          ports:
+            - containerPort: 80
